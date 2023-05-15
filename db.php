@@ -1,17 +1,22 @@
-<?php
-# conexão com banco de dados
+<?php 
+
 $servidor = "localhost";
 $usuario = "root";
 $senha = "";
-$database = "aula_php";
+$db = "aula_php";
 
-$conexao = mysqli_connect($servidor, $usuario, $senha, $database);
-$query = "select * from cursos";
+$conexao = mysqli_connect($servidor, $usuario, $senha, $db);
+
+
+$query = "SELECT * FROM CURSOS";
 $consulta_cursos = mysqli_query($conexao, $query);
 
-$query = "select * from alunos";
+$query = "SELECT * FROM ALUNOS";
 $consulta_alunos = mysqli_query($conexao, $query);
 
-$query = "SELECT a.nome, b.nome_curso FROM alunos a, cursos b ,  alunos_cursos c
-WHERE c.id_aluno = a.id_aluno and c.id_curso = b.id_curso";
+$query = "SELECT alunos_cursos.id_aluno_curso, alunos.nome, cursos.nome_curso 
+			FROM alunos, cursos, alunos_cursos
+			WHERE alunos_cursos.id_aluno = alunos.id_aluno
+			AND alunos_cursos.id_curso = cursos.id_curso";
+			
 $consulta_matriculas = mysqli_query($conexao, $query);
