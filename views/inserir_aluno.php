@@ -1,6 +1,7 @@
 <?php if(!isset($_GET['editar'])){ ?>
 
 <h1>Inserir novo aluno</h1>
+
 <form method="post" action="processa_aluno.php">
 	<br>
 	<label class="badge badge-secondary">Nome aluno:</label><br>
